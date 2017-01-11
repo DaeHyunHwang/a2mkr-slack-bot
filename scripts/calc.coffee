@@ -104,9 +104,8 @@ factor = (tokenList) ->
       tokenList.shift()
     return value
   return
-
 module.exports = (robot) ->
-  robot.hear /calc ([0-9.\(\)\+\-\*\/ ]+)/i, (msg) ->
+  robot.hear / ([0-9.\(\)\+\-\*\/ ]+)/i, (msg) ->
     tokenList = lexer(msg.match[1]);
     result = expr(tokenList);
     msg.send ""+result
